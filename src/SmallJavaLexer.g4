@@ -42,13 +42,13 @@ lexer grammar SmallJavaLexer;
 	COMMA		:	',';	
 	
 	// Literals
-	INTLIT		:	'0'|[1-9][0-9]*;
-	FLOATLIT	:	'0'|[1-9][0-9]* '.' [0-9]+;
+	INTLIT		:	[0]|[1-9][0-9]*;
+	FLOATLIT	:	[0]|[1-9][0-9]* '.' [0-9]+;
 	STRINGLIT	:	'"'	[a-zA-Z0-9]*'"';
 	
 	// Identifiers
-	ID			:	[a-z][a-zA-Z0-9_]{1-10};
-	NAMECLASS		:	[A-Z][a-zA-Z0-9_]{1-10};
+	ID			:	[a-z][a-zA-Z0-9_]*;
+	NAMECLASS		:	[A-Z][a-zA-Z0-9_]*;
 	
 	// Format
 	INTFORM		:	'%d';
