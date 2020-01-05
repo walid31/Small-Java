@@ -14,20 +14,21 @@ parser grammar SmallJavaParser;
 						RIGHTBRACE
 						RIGHTBRACE; 
 					
-	libraries		:	IMPORT LIB libraries;
+	libraries		:	IMPORT LIB SEMICOLON libraries
+					|	IMPORT LIB SEMICOLON;
 	
 	signature		:	MODIFICATOR CLASS NAMECLASS;
 	
-	varDeclaration	:	type ID
+	varDeclaration	:	type SEMICOLON
 					|	type assignment;
 
 		type		:	INT_SJ
 					|	FLOAT_SJ
 					|	STRING_SJ;
 	
-	assignment		:	ID ASSIGN expression;
+	assignment		:	ID ASSIGN expression SEMICOLON;
 	
-	expression		:	value
+	expression		:	value 
 					|	value operator=(DIVISION|MULT) value
 					|	value operator=(PLUS|MINUS)	value;
 					
@@ -50,13 +51,13 @@ parser grammar SmallJavaParser;
 					|   si_sinon;
 					
 	si				:	SI LEFTPAR cond RIGHTPAR LEFTBRACE
-						expression
+						expression SEMICOLON
 						RIGHTBRACE;
 						
 	si_sinon		:  	SI LEFTPAR cond RIGHTPAR LEFTBRACE
 						expression
 						RIGHTBRACE
-						SINON LEFTBRACE expression RIGHTBRACE;
+						SINON LEFTBRACE expression SEMICOLON RIGHTBRACE SEMICOLON;
 						
 	cond			:	comparaison
 					|	value logic_operator value
@@ -77,13 +78,13 @@ parser grammar SmallJavaParser;
 					|	SUPEQ
 					|	INFEQ;
 					
-	read			:	IN_SJ LEFTPAR QUOTE format QUOTE COMMA ID RIGHTPAR;
+	read			:	IN_SJ LEFTPAR QUOTE format QUOTE COMMA ID RIGHTPAR SEMICOLON;
 	
 	format			:	INTFORM
 					|	FLOATFORM
 					|	STRINGFORM; 
 					
-	write			:	OUT_SJ LEFTPAR QUOTE string QUOTE COMMA ID RIGHTPAR;
+	write			:	OUT_SJ LEFTPAR QUOTE string QUOTE COMMA ID RIGHTPAR SEMICOLON;
 	
 	string			:	STRINGLIT format STRINGLIT 
 					|	format STRINGLIT

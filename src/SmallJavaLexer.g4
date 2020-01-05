@@ -40,6 +40,7 @@ lexer grammar SmallJavaLexer;
 	RIGHTBRACE	:	'}';
 	QUOTE		:	'"';
 	COMMA		:	',';	
+	SEMICOLON	:	';';
 	
 	// Literals
 	INTLIT		:	[0]|[1-9][0-9]*;
