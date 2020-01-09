@@ -136,7 +136,7 @@ grammar Grammar;
 	INTLIT		:	[0]|[1-9][0-9]*;
 	FLOATLIT	:	[0]|[1-9][0-9]* '.' [0-9]+;
 	STRINGLIT	:	'"'	[a-zA-Z0-9]*'"';
-	
+		
 	// Identifiers
 	ID			:	[a-z][a-zA-Z0-9_]*;
 	NAMECLASS		:	[A-Z][a-zA-Z0-9_]*;
